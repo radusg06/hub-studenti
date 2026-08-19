@@ -1,0 +1,160 @@
+.card{
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+}
+
+.topRow{
+    display: flex;
+    gap: 12px;
+}
+
+.avatar{
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--purple-2), var(--purple-3));
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.textarea{
+    flex: 1;
+    background: transparent;
+    border: none;
+    resize: none;
+    color: var(--text-white);
+    font-size: 0.95rem;
+    font-family: inherit;
+    line-height: 1.5;
+    padding-top: 8px;
+}
+.textarea::placeholder{
+    color: rgba(245,243,248,0.35);
+}
+.textarea:focus{
+    outline: none;
+}
+
+.bottomRow{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.iconGroup{
+    display: flex;
+    gap: 6px;
+}
+
+.iconBtn{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    color: var(--text-gray);
+    font-size: 0.8rem;
+    font-family: inherit;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+.iconBtn svg{
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+}
+
+.postBtn{
+    padding: 8px 20px;
+    font-size: 0.85rem;
+}
+.postBtn:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ---------- Post type selector ---------- */
+.typeSelector{
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+    padding: 4px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    overflow-x: auto;
+}
+.typeButton{
+    flex-shrink: 0;
+    padding: 7px 14px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-gray);
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .15s ease, color .15s ease;
+}
+.typeButton:hover{
+    color: var(--text-white);
+}
+.typeButtonActive{
+    background: linear-gradient(135deg, var(--purple-2), var(--purple-3));
+    color: #fff;
+}
+.typeButtonActive:hover{
+    color: #fff;
+}
+
+/* ---------- Dynamic fields (non-General post types) ---------- */
+.fieldsGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.input{
+    grid-column: span 1;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 10px 12px;
+    color: var(--text-white);
+    font-size: 0.88rem;
+    font-family: inherit;
+    resize: none;
+}
+.input::placeholder{
+    color: rgba(245,243,248,0.35);
+}
+.input:focus{
+    outline: none;
+    border-color: var(--purple-1);
+    background: rgba(255,255,255,0.06);
+}
+
+.inputWide{
+    grid-column: span 2;
+}
+
+@media (max-width: 480px){
+    .fieldsGrid{ grid-template-columns: 1fr; }
+    .inputWide{ grid-column: span 1; }
+}

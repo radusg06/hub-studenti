@@ -1,0 +1,36 @@
+.feedWrap{
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 24px 100px;
+}
+
+.title{
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 24px;
+}
+
+.scrollColumn{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.itemWrap{
+  width: 100%;
+}
+
+.loader{
+  text-align: center;
+  color: var(--text-gray);
+  font-size: 0.88rem;
+  padding: 20px 0;
+}
+
+.endMessage{
+  text-align: center;
+  color: var(--text-gray);
+  font-size: 0.88rem;
+  padding: 24px 0;
+}

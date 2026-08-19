@@ -1,0 +1,68 @@
+.main{
+  position: relative;
+  z-index: 5;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 70px 24px 110px;
+}
+
+.main h1{
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.main p{
+  margin-top: 14px;
+  color: var(--text-gray);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 640px;
+}
+
+.quickLinks{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.linkCard{
+  display: block;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 22px;
+  transition: transform .2s ease, border-color .2s ease;
+}
+.linkCard:hover{
+  transform: translateY(-3px);
+  border-color: rgba(168,139,209,0.5);
+}
+.linkCard h3{
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.linkCard p{
+  color: var(--text-gray);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.notice{
+  margin-top: 32px;
+  padding: 14px 18px;
+  border: 1px solid rgba(168,139,209,0.25);
+  border-radius: 12px;
+  background: rgba(168,139,209,0.06);
+  color: var(--text-gray);
+  font-size: 0.88rem;
+}
+
+@media (max-width: 800px){
+  .quickLinks{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px){
+  .quickLinks{ grid-template-columns: 1fr; }
+}

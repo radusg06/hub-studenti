@@ -1,0 +1,10 @@
+Acest folder are nevoie de 4 fisiere pe care nu le pot recrea eu
+(sunt imagini binare, nu cod text):
+
+- logo.png
+- avatar1.webp
+- avatar2.jpg
+- avatar3.jpg
+
+Copiaza-le din proiectul tau vechi (universe-nextjs/public/assets/)
+in acest folder, apoi sterge acest fisier .txt.

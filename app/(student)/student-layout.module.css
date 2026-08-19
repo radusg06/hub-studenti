@@ -1,0 +1,16 @@
+.shell{
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.content{
+  margin-left: 260px;
+  min-height: 100vh;
+  position: relative;
+}
+
+@media (max-width: 900px){
+  .content{
+    margin-left: 0;
+  }
+}
