@@ -5,6 +5,7 @@ import { fetchPostById, fetchSavedPostIds, mapPostRow } from "@/lib/posts";
 import SaveButton from "@/components/Housing/SaveButton";
 import PhotoGallery from "@/components/Housing/PhotoGallery";
 import styles from "./page.module.css";
+import {ChatButton} from "@/components/ChatButton/ChatButton";
 
 export default async function HousingDetailPage({ params }) {
     const supabase = await createClient();
@@ -69,10 +70,7 @@ export default async function HousingDetailPage({ params }) {
                     <div className={styles.posterBadge}>✓ Student verified</div>
                 </div>
             </div>
-
-            <button type="button" className={`btn btn-outline ${styles.contactBtn}`} disabled>
-                Message {listing.authorName} (chat coming soon)
-            </button>
+            <ChatButton authorName={listing.authorName}/>
         </div>
     );
 }
