@@ -1,0 +1,21 @@
+.btn{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    cursor: pointer;
+    color: var(--text-white);
+    flex-shrink: 0;
+}
+.btn svg{
+    width: 19px;
+    height: 19px;
+}
+.btnActive{
+    color: #f66d8e;
+    border-color: rgba(246,109,142,0.4);
+}

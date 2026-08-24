@@ -1,0 +1,14 @@
+.wrap{
+    margin-top: 18px;
+}
+.map{
+    height: 360px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+}
+.hint{
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: var(--text-gray);
+}

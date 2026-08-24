@@ -1,0 +1,138 @@
+.card{
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 28px;
+    margin-top: 20px;
+}
+
+.title{
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 20px;
+}
+
+.section{
+    padding: 18px 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+.section:first-of-type{
+    border-top: none;
+    padding-top: 0;
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-gray);
+}
+.field + .field{
+    margin-top: 14px;
+}
+
+.inline{
+    display: flex;
+    gap: 8px;
+}
+
+.field input{
+    flex: 1;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 10px 12px;
+    color: var(--text-white);
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+.field input::placeholder{
+    color: rgba(245,243,248,0.35);
+}
+.field input:focus{
+    outline: none;
+    border-color: var(--purple-1);
+    background: rgba(255,255,255,0.06);
+}
+
+.status{
+    margin-top: 10px;
+    font-size: 0.82rem;
+    color: var(--purple-1);
+}
+
+.toggleRow{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 0.9rem;
+    color: var(--text-white);
+}
+
+.toggle{
+    position: relative;
+    width: 42px;
+    height: 24px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    cursor: pointer;
+    transition: background .15s ease;
+    flex-shrink: 0;
+}
+.toggleOn{
+    background: linear-gradient(135deg, var(--purple-2), var(--purple-3));
+}
+.toggleDot{
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform .15s ease;
+}
+.toggleOn .toggleDot{
+    transform: translateX(18px);
+}
+
+.dangerSection{
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(243,152,164,0.2);
+}
+
+.deleteBtn{
+    background: rgba(243,152,164,0.1);
+    border: 1px solid rgba(243,152,164,0.4);
+    color: #f398a4;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 9px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: inherit;
+}
+.deleteBtn:hover{
+    background: rgba(243,152,164,0.18);
+}
+.deleteBtn:disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.confirmBox p{
+    color: var(--text-gray);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.actions{
+    display: flex;
+    gap: 10px;
+}

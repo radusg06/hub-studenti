@@ -1,0 +1,9 @@
+.main{
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 70px 24px 110px;
+  min-height: 60vh;
+}

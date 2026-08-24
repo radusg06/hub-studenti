@@ -1,0 +1,17 @@
+.features{
+  position: relative;
+  z-index: 5;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 40px 24px;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+@media (max-width: 900px){
+  .features{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px){
+  .features{ grid-template-columns: 1fr; }
+}
