@@ -14,7 +14,7 @@ import ro.hubstudentesc.persistence.entity.auth.IssuedToken;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-08-20T13:40:00+0300",
+    date = "2026-09-14T14:49:04+0300",
     comments = "version: 1.6.3, compiler: javac, environment: Java 17.0.19 (Amazon.com Inc.)"
 )
 @Component
@@ -48,10 +48,7 @@ public class IssuedTokenMapperImpl implements IssuedTokenMapper {
         clientId = issuedToken.getClientId();
         sessionId = issuedToken.getSessionId();
         refreshTokenId = issuedToken.getRefreshTokenId();
-        List<String> list = issuedToken.getScopes();
-        if ( list != null ) {
-            scopes = new ArrayList<String>( list );
-        }
+        scopes = stringArrayToStringList( issuedToken.getScopes() );
         issuedAt = issuedToken.getIssuedAt();
         expiresAt = issuedToken.getExpiresAt();
         revokedAt = issuedToken.getRevokedAt();
@@ -60,5 +57,18 @@ public class IssuedTokenMapperImpl implements IssuedTokenMapper {
         IssuedTokenRecordDto issuedTokenRecordDto = new IssuedTokenRecordDto( id, jti, type, grantType, userId, clientId, sessionId, refreshTokenId, scopes, issuedAt, expiresAt, revokedAt, revocationReason );
 
         return issuedTokenRecordDto;
+    }
+
+    protected List<String> stringArrayToStringList(String[] stringArray) {
+        if ( stringArray == null ) {
+            return null;
+        }
+
+        List<String> list = new ArrayList<String>( stringArray.length );
+        for ( String string : stringArray ) {
+            list.add( string );
+        }
+
+        return list;
     }
 }

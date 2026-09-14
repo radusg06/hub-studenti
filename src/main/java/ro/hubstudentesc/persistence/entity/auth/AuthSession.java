@@ -11,7 +11,7 @@ import java.util.UUID;
 
 @Entity
 @NoArgsConstructor
-@Table(name = "auth_sessions")
+@Table(name = "auth_sessions", schema = "app_auth")
 public class AuthSession {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -26,12 +26,10 @@ public class AuthSession {
     @Column(nullable = false)
     private LocalDateTime authTime;
 
-    @Column(nullable = false , length = 255)
-    @NotBlank
+    @Column(length = 255)
     private String ipAddress;
 
-    @Column(nullable = false , length = 255)
-    @NotBlank
+    @Column(length = 255)
     private String userAgent;
 
     @Column(nullable = false)

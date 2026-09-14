@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @Entity
 @NoArgsConstructor
-@Table(name = "users")
+@Table(name = "users", schema = "app_auth")
 public class User {
 
     @Id
@@ -28,12 +28,10 @@ public class User {
     @Email
     private String email;
 
-    @Column(nullable = false, length = 100)
-    @NotBlank
+    @Column(length = 100)
     private String givenName;
 
-    @Column(nullable = false, length = 100)
-    @NotBlank
+    @Column(length = 100)
     private String familyName;
 
     @Column(length = 500)

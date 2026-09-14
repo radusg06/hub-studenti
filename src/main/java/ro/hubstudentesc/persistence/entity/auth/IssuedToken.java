@@ -2,17 +2,18 @@ package ro.hubstudentesc.persistence.entity.auth;
 
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import ro.hubstudentesc.enums.authEnums.GrantType;
 import ro.hubstudentesc.enums.authEnums.RevocationReason;
 import ro.hubstudentesc.enums.authEnums.TokenType;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
 @NoArgsConstructor
-@Table(name = "issued_tokens")
+@Table(name = "issued_tokens", schema = "app_auth")
 public class IssuedToken {
 
     @Id
@@ -22,7 +23,7 @@ public class IssuedToken {
     @Column(nullable = false, unique = true, length = 255)
     private String jti;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private byte[] tokenHash;
 
     @Enumerated(EnumType.STRING)
@@ -33,20 +34,21 @@ public class IssuedToken {
     @Column(nullable = false)
     private GrantType grantType;
 
-    @Column(name = "user_id", nullable = false)
+    @Column(name = "user_id")
     private UUID userId;
 
     @Column(nullable = false, length = 100)
     private String clientId = "app_client";
 
-    @Column(name = "session_id", nullable = false)
+    @Column(name = "session_id")
     private UUID sessionId;
 
-    @Column(name = "refresh_token_id", nullable = false)
+    @Column(name = "refresh_token_id")
     private UUID refreshTokenId;
 
-    @ElementCollection
-    private List<String> scopes;
+    @JdbcTypeCode(SqlTypes.ARRAY)
+    @Column(nullable = false)
+    private String[] scopes = new String[0];
 
     @Column(nullable = false)
     private LocalDateTime issuedAt;
@@ -88,8 +90,8 @@ public class IssuedToken {
     public UUID getRefreshTokenId(){return refreshTokenId;}
     public void setRefreshTokenId(UUID refreshTokenId){this.refreshTokenId=refreshTokenId;}
 
-    public List<String> getScopes(){return scopes;}
-    public void setScopes(List<String> scopes){this.scopes=scopes;}
+    public String[] getScopes(){return scopes;}
+    public void setScopes(String[] scopes){this.scopes=scopes;}
 
     public LocalDateTime getIssuedAt(){return issuedAt;}
     public void setIssuedAt(LocalDateTime issuedAt){this.issuedAt=issuedAt;}

@@ -5,7 +5,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.CONFLICT)
 public class JobApplicationAlreadyExistsException extends RuntimeException {
-    public JobApplicationAlreadyExistsException(){
-        super("User has already applied to this job");
+
+    private static final long serialVersionUID = 1L;
+
+    public JobApplicationAlreadyExistsException() {
+        super("Ai trimis deja o candidatura pentru acest anunt");
     }
 }
