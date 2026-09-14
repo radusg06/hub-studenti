@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Entity
 @NoArgsConstructor
-@Table(name = "user_credentials")
+@Table(name = "user_credentials", schema = "app_auth")
 public class UserCredential {
 
     @Id

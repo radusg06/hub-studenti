@@ -8,10 +8,15 @@ import ro.hubstudentesc.persistence.entity.socialmedia.Post;
 
 @Mapper(componentModel = "spring")
 public interface PostMapper {
-    @Mapping(source = "user.id" , target = "userId")
     PostRecordDto toDto(Post post);
 
-    @Mapping(target = "user" , ignore = true)
+    @Mapping(target ="id", ignore = true)
+    @Mapping(target ="author", ignore = true)
+    @Mapping(target ="likesCount", ignore = true)
+    @Mapping(target ="commentsCount", ignore = true)
+    @Mapping(target ="pinned", ignore = true)
+    @Mapping(target ="createdAt", ignore = true)
+    @Mapping(target ="updatedAt", ignore = true)
     Post toEntity(PostRecordDto dto);
 
 }

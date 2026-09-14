@@ -6,13 +6,10 @@ import jakarta.validation.constraints.Size;
 import ro.hubstudentesc.enums.socialmediaEnums.PostType;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 public record PostRecordDto(
-        @NotNull
-        UUID userId,
+        @NotNull PostType type,
 
-        @NotBlank
         @Size(max = 100)
         String title,
 
@@ -20,10 +17,9 @@ public record PostRecordDto(
         @Size(max = 5000)
         String content,
 
-        @NotNull
-        PostType type,
+        String[] mediaUrls,
 
-        @NotNull
-        LocalDateTime createdAt
-) {
-}
+        LocalDateTime eventDate,
+
+        String location
+) {}

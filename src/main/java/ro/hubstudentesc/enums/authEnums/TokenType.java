@@ -1,6 +1,6 @@
 package ro.hubstudentesc.enums.authEnums;
 
 public enum TokenType {
-    acces_token,
+    access_token,
     id_token
 }

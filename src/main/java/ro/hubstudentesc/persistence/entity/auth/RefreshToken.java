@@ -3,15 +3,16 @@ package ro.hubstudentesc.persistence.entity.auth;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import ro.hubstudentesc.enums.authEnums.RevocationReason;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
 @NoArgsConstructor
-@Table(name = "refresh_tokens")
+@Table(name = "refresh_tokens", schema = "app_auth")
 public class RefreshToken {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -26,18 +27,19 @@ public class RefreshToken {
     @Column(nullable = false, length = 100)
     private String clientId = "app_client";
 
-    @Column(name = "session_id", nullable = false)
+    @Column(name = "session_id")
     private UUID sessionId;
 
-    @ElementCollection
-    private List<String> scopes;
+    @JdbcTypeCode(SqlTypes.ARRAY)
+    @Column(nullable = false)
+    private String[] scopes = new String[0];
 
     @Column(nullable = false)
     private UUID familyId;
 
     private UUID parentId;
 
-    @Column(name = "replace_by_id" , unique = true)
+    @Column(name = "replaced_by_id" , unique = true)
     private UUID replacedById;
 
     @Column(nullable = false)
@@ -78,8 +80,8 @@ public class RefreshToken {
     public UUID getSessionId(){return sessionId;}
     public void setSessionId(UUID sessionId){this.sessionId=sessionId;}
 
-    public List<String> getScopes(){return scopes;}
-    public void setScopes(List<String> scopes){this.scopes=scopes;}
+    public String[] getScopes(){return scopes;}
+    public void setScopes(String[] scopes){this.scopes=scopes;}
 
     public UUID getFamilyId(){return familyId;}
     public void setFamilyId(UUID familyId){this.familyId=familyId;}

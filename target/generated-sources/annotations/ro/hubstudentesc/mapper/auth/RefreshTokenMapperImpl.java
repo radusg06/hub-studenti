@@ -12,7 +12,7 @@ import ro.hubstudentesc.persistence.entity.auth.RefreshToken;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-08-20T13:40:00+0300",
+    date = "2026-09-14T14:49:04+0300",
     comments = "version: 1.6.3, compiler: javac, environment: Java 17.0.19 (Amazon.com Inc.)"
 )
 @Component
@@ -44,10 +44,7 @@ public class RefreshTokenMapperImpl implements RefreshTokenMapper {
         userId = refreshToken.getUserId();
         clientId = refreshToken.getClientId();
         sessionId = refreshToken.getSessionId();
-        List<String> list = refreshToken.getScopes();
-        if ( list != null ) {
-            scopes = new ArrayList<String>( list );
-        }
+        scopes = stringArrayToStringList( refreshToken.getScopes() );
         authTime = refreshToken.getAuthTime();
         familyId = refreshToken.getFamilyId();
         parentId = refreshToken.getParentId();
@@ -62,5 +59,18 @@ public class RefreshTokenMapperImpl implements RefreshTokenMapper {
         RefreshTokenRecordDto refreshTokenRecordDto = new RefreshTokenRecordDto( id, userId, clientId, sessionId, scopes, authTime, familyId, parentId, replacedById, issuedAt, expiresAt, lastUsedAt, useCount, revokedAt, revocationReason );
 
         return refreshTokenRecordDto;
+    }
+
+    protected List<String> stringArrayToStringList(String[] stringArray) {
+        if ( stringArray == null ) {
+            return null;
+        }
+
+        List<String> list = new ArrayList<String>( stringArray.length );
+        for ( String string : stringArray ) {
+            list.add( string );
+        }
+
+        return list;
     }
 }

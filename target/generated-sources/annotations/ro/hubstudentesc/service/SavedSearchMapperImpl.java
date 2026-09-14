@@ -11,7 +11,7 @@ import ro.hubstudentesc.persistence.entity.auth.User;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-08-20T13:40:00+0300",
+    date = "2026-09-14T14:49:04+0300",
     comments = "version: 1.6.3, compiler: javac, environment: Java 17.0.19 (Amazon.com Inc.)"
 )
 @Component
